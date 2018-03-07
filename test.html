@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>How to Install a LAMP Stack on Ubuntu 16.04</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <script src="./How to Install a LAMP Stack on Ubuntu 16.04_files/leadflows.js.download" type="text/javascript" id="LeadFlows-2165147" crossorigin="anonymous" data-leadin-portal-id="2165147" data-leadin-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="2165147" data-hsjs-env="prod"></script><script src="./How to Install a LAMP Stack on Ubuntu 16.04_files/2165147.js.download" type="text/javascript" id="hs-script-loader"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="./How to Install a LAMP Stack on Ubuntu 16.04_files/bat.js.download" async=""></script><script async="" src="https://static.ads-twitter.com/uwt.js"></script><script src="./How to Install a LAMP Stack on Ubuntu 16.04_files/ytc.js.download" async=""></script><script type="text/javascript" async="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/insight.min.js.download"></script><script id="hs-analytics" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/2165147.js(1).download"></script><script src="./How to Install a LAMP Stack on Ubuntu 16.04_files/bat.js.download" async=""></script><script type="text/javascript" async="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/3688.js.download"></script><script type="text/javascript" async="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/hotjar-490626.js.download"></script><script type="text/javascript" async="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/56e1d1c9db8585d6aa000003.js.download"></script><script type="text/javascript" async="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/3657.js.download"></script><script type="text/javascript" async="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/analytics.js.download"></script><script async="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/gtm.js.download"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-M3XXZX');</script>
+        
+        
+        <meta name="description" content="This tutorial outlines the steps needed to install a LAMP (Linux, Apache, MySQL, PHP) stack on an Ubuntu 16.04 Long Term Support (LTS) system.">
+        <meta name="keywords" content="install lamp ubuntu 16.04, apache install, mysql install, php 7.0,  ubuntu 16.04 ">
+        
+        <meta property="og:title" content="How to Install a LAMP Stack on Ubuntu 16.04">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/">
+        <meta property="og:description" content="This tutorial outlines the steps needed to install a LAMP (Linux, Apache, MySQL, PHP) stack on an Ubuntu 16.04 Long Term Support (LTS) system.">
+        <meta property="og:site_name" content="Linode Guides &amp; Tutorials">
+        
+        
+        <meta name="twitter:card" content="summary">
+        
+        <meta name="twitter:site" content="@linode">
+        <link rel="alternate" type="application/rss" href="https://linode.com/docs/index.xml">
+
+        
+            <link href="./How to Install a LAMP Stack on Ubuntu 16.04_files/home-fc98150ddf.min.css" rel="stylesheet" type="text/css">
+
+        
+        <script type="text/javascript" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/jquery.min.js.download"></script>
+        <link href="./How to Install a LAMP Stack on Ubuntu 16.04_files/css" rel="stylesheet" type="text/css">
+        <link rel="canonical" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/">
+        <link rel="shortcut icon" href="https://linode.com/favicon.ico">
+    <script async="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/modules-c6bfdbbddda6e4ec5dd423cfd4901901.js.download"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style><script type="text/javascript" async="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/tagjs"></script><img src="./How to Install a LAMP Stack on Ubuntu 16.04_files/saved_resource" width="1" height="1" border="0"><img src="./How to Install a LAMP Stack on Ubuntu 16.04_files/seg" width="1" height="1" border="0"><script charset="utf-8" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/bundle.js.download"></script><style type="text/css">.ub-emb-iframe-wrapper{display:none;position:relative;vertical-align:middle}.ub-emb-iframe-wrapper.ub-emb-visible{display:inline-block}.ub-emb-iframe-wrapper .ub-emb-close{background-color:hsla(0,0%,100%,.6);border-radius:50%;border:0;color:#525151;cursor:pointer;font-family:Arial,sans-serif;font-size:20px;font-weight:400;height:20px;line-height:1;outline:none;padding:0;position:absolute;right:10px;text-align:center;top:10px;transition:background-color .2s ease-in-out,-webkit-transform .2s ease-in-out;transition:transform .2s ease-in-out,background-color .2s ease-in-out;transition:transform .2s ease-in-out,background-color .2s ease-in-out,-webkit-transform .2s ease-in-out;width:20px;z-index:1}.ub-emb-iframe-wrapper.ub-emb-mobile .ub-emb-close{transition:none}.ub-emb-iframe-wrapper .ub-emb-close:before{content:"";height:40px;position:absolute;right:-10px;top:-10px;width:40px}.ub-emb-iframe-wrapper .ub-emb-close:hover{background-color:#fff;-webkit-transform:scale(1.2);-ms-transform:scale(1.2);transform:scale(1.2)}.ub-emb-iframe-wrapper .ub-emb-close:active,.ub-emb-iframe-wrapper .ub-emb-close:focus{background:hsla(0,0%,100%,.35);color:#444;outline:none}.ub-emb-iframe-wrapper .ub-emb-iframe{border:0;max-height:100%;max-width:100%}.ub-emb-overlay .ub-emb-iframe-wrapper .ub-emb-iframe{box-shadow:0 0 12px rgba(0,0,0,.3),0 1px 5px rgba(0,0,0,.2)}.ub-emb-overlay .ub-emb-iframe-wrapper.ub-emb-mobile{max-width:100vw}</style><style type="text/css">.ub-emb-overlay{transition:visibility .3s step-end;visibility:hidden}.ub-emb-overlay.ub-emb-visible{transition:none;visibility:visible}.ub-emb-overlay .ub-emb-backdrop,.ub-emb-overlay .ub-emb-scroll-wrapper{opacity:0;position:fixed;transition:opacity .3s ease,z-index .3s step-end;z-index:-1}.ub-emb-overlay .ub-emb-backdrop{background:rgba(0,0,0,.6);top:-1000px;bottom:-1000px;left:-1000px;right:-1000px}.ub-emb-overlay .ub-emb-scroll-wrapper{box-sizing:border-box;top:0;bottom:0;left:0;right:0;overflow:auto;padding:30px;text-align:center;width:100%;white-space:nowrap;-webkit-overflow-scrolling:touch}.ub-emb-overlay .ub-emb-scroll-wrapper:before{content:"";display:inline-block;height:100%;vertical-align:middle}.ub-emb-overlay.ub-emb-mobile .ub-emb-scroll-wrapper{padding:30px 0}.ub-emb-overlay.ub-emb-visible .ub-emb-backdrop,.ub-emb-overlay.ub-emb-visible .ub-emb-scroll-wrapper{opacity:1;transition:opacity .4s ease;z-index:2147483647}</style><style type="text/css">.ub-emb-bar{transition:visibility .2s step-end;visibility:hidden}.ub-emb-bar.ub-emb-visible{transition:none;visibility:visible}.ub-emb-bar .ub-emb-bar-frame{left:0;position:fixed;right:0;text-align:center;transition:bottom .2s ease-in-out,top .2s ease-in-out,z-index .2s step-end;z-index:-1}.ub-emb-bar.ub-emb-ios .ub-emb-bar-frame{right:auto;width:100%}.ub-emb-bar.ub-emb-visible .ub-emb-bar-frame{transition:bottom .3s ease-in-out,top .3s ease-in-out;z-index:2147483646}.ub-emb-bar .ub-emb-close{bottom:0;margin:auto 0;top:0}.ub-emb-bar:not(.ub-emb-mobile) .ub-emb-close{right:20px}</style></head>
+    <body class="no-subnav">
+         <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="searchLabel" id="ds-search-modal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div id="ds-search-input">
+				<div class="input-group col-md-12">
+					<input id="ds-search" type="text" class="form-control input-lg" placeholder="Search">
+					<span class="input-group-btn">
+						<button class="btn btn-info btn-lg" id="ds-search-btn-modal" type="button">
+						<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</span>
+				</div>
+				<ul class="list-group" id="ds-search-list">
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+         
+        
+        <noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3XXZX" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+        
+        
+        <header>
+            <nav id="main-nav" class="navbar navbar-default" role="navigation">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button type="button" class="toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="https://www.linode.com/"><img id="navbar-logo" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/linode-logo.svg" style="height:57px"></a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-top-collapse">
+      <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="https://www.linode.com/"><span class="nav-home"></span></a></li>
+                <li><a href="https://www.linode.com/linodes">Features</a></li>
+                <li><a href="https://www.linode.com/pricing">Pricing</a></li>
+                <li><a href="https://www.linode.com/addons">Add-ons</a></li>
+
+        <li class="dropdown">
+          <a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#" class="dropdown-toggle" data-toggle="dropdown">Resources <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-main-nav dropdown-mega">
+            <li class="dropdown-third">
+              <ul>
+                <li><a href="https://linode.com/docs/getting-started">Getting Started</a></li>
+                <li><a href="https://linode.com/docs/migrate-from-shared">Migrating to Linode</a></li>
+                <li><a href="https://linode.com/docs/hosting-website">Hosting a Website</a></li>
+                <li class="divider"></li>
+                <li class="big"><a href="https://linode.com/docs"><i class="fa fa-book"></i> Guides &amp; Tutorials</a></li>
+                <li class="divider visible-xs"></li>
+              </ul>
+            </li>
+            <li class="dropdown-third middle">
+              <ul>
+                <li><a href="https://www.linode.com/api">API</a></li>
+                <li><a href="https://www.linode.com/stackscripts">StackScripts</a></li>
+                <li><a href="https://www.linode.com/mobile">Mobile</a></li>
+                <li><a href="https://www.linode.com/cli" target="_blank">CLI</a></li>
+
+                <li class="divider"></li>
+
+                <li><a href="https://www.linode.com/chat"><i class="fa fa-bullhorn gray"></i> Chat</a></li>
+                <li><a href="https://forum.linode.com/"><i class="fa fa-comments"></i> Community Forum</a></li>
+                <li class="divider visible-xs"></li>
+              </ul>
+            </li>
+            <li class="dropdown-third">
+              <ul>
+                <li><a href="https://blog.linode.com/">Blog</a></li>
+                <li><a href="http://status.linode.com/">System Status</a></li>
+                <li><a href="https://www.linode.com/speedtest">Speed Test</a></li>
+                <li><a href="https://www.linode.com/about">About Us</a></li>
+                <li class="divider"></li>
+                <li><a href="https://www.linode.com/contact"><i class="fa fa-user"></i> Contact Support</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li role="presentation" class="divider-vertical"><span>|</span></li>
+          <li class=""><a href="https://manager.linode.com/">Log in <span class="login-caret"></span></a></li>
+          <li class="visible-xs"><a href="https://manager.linode.com/session/signup">Sign up</a></li>
+          <li class="hidden-xs"><div><a id="btn-signup-top" class="btn btn-sm btn-green navbar-btn hidden-xs" href="https://manager.linode.com/session/signup">Sign up</a></div></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+            <nav class="navbar subnav jumbotron" role="navigation">
+  <div class="container">
+    <div class="subnav-divider">
+
+    </div>
+  </div>
+</nav>
+        </header>
+        
+<script>
+    var anchorForId = function (id) {
+        var anchor = document.createElement("a");
+        anchor.className = "header-link";
+        anchor.href      = "#" + id;
+        anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+        anchor.title = "Permalink";
+        return anchor;
+    };
+
+    var linkifyAnchors = function (level, containingElement) {
+        var headers = containingElement.getElementsByTagName("h" + level);
+        for (var h = 0; h < headers.length; h++) {
+            var header = headers[h];
+
+            if (typeof header.id !== "undefined" && header.id !== "") {
+                header.appendChild(anchorForId(header.id));
+            }
+        }
+    };
+
+    document.onreadystatechange = function () {
+        if (this.readyState === "complete") {
+            var contentBlock = document.getElementsByClassName("doc")[0];
+            if (!contentBlock) {
+                return;
+            }
+            for (var level = 1; level <= 6; level++) {
+                linkifyAnchors(level, contentBlock);
+            }
+        }
+    };
+
+</script>
+
+
+<section class="primary first-section">
+  <div class="container">
+    <div class="row breadcrumb-row">
+  <div class="col-sm-12">
+    <ol class="breadcrumb library-breadcrumb">
+      
+
+
+
+
+
+
+
+<li>
+  
+  <a href="https://linode.com/docs/">Guides &amp; Tutorials</a>
+  
+</li>
+
+
+<li>
+  
+  <a href="https://linode.com/docs/web-servers/">Web Server Guides</a>
+  
+</li>
+
+
+<li>
+  
+  <a href="https://linode.com/docs/web-servers/lamp/">LAMP Guides</a>
+  
+</li>
+
+
+<li>
+  
+  How to Install a LAMP Stack on Ubuntu 16.04
+  
+</li>
+
+    </ol>
+  </div>
+</div>
+
+    <div class="row" itemscope="" itemtype="http://schema.org/TechArticle">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-9 col-sm-offset-3">
+          </div>
+        </div>
+        <div class="row">
+          <div id="article-body" class="col-sm-9 col-sm-push-3 doc">
+            <h1 class="doc-title" itemprop="headline">How to Install a LAMP Stack on Ubuntu 16.04</h1>
+<p markdown="0" class="doc-time doc-modified-time">
+  <small class="updated">Updated <time itemprop="dateModified" datetime="2017-07-28T00:00:00Z">Friday, July 28, 2017</time> by Edward Angert</small>
+  <small class="contributed-by">
+  
+  Written by Linode
+  
+  </small>
+</p>
+
+           <div class="row">
+            
+            <div class="col-sm-9"><div markdown="0" class="signup-top">
+    <span>
+        Use promo code <strong>DOCS10</strong> for $10 credit on a new account.
+    </span>
+    <form action="https://manager.linode.com/session/signup" style="display: inline">
+        <button type="submit" target="_blank" class="btn btn-blue btn-sm btn-border">Try this Guide</button>
+    </form>
+</div>
+</div>
+            <div class="col-sm-3"><div class="social-share">
+    <div class="btn-group share-group">
+        <a data-toggle="dropdown" class="btn btn-info">
+            <i class="fa fa-share-alt fa-inverse"></i>
+        </a>
+        <button href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle share">
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                <a data-original-title="Twitter" rel="tooltip" href="https://twitter.com/share?url=https%3a%2f%2flinode.com%2fdocs%2fweb-servers%2flamp%2finstall-lamp-stack-on-ubuntu-16-04%2f&amp;via=linode&amp;text=How%20to%20Install%20a%20LAMP%20Stack%20on%20%e2%80%a6" class="btn btn-twitter" data-placement="left" target="_blank">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a data-original-title="Facebook" rel="tooltip" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2flinode.com%2fdocs%2fweb-servers%2flamp%2finstall-lamp-stack-on-ubuntu-16-04%2f" class="btn btn-facebook" data-placement="left" target="_blank">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a data-original-title="Hacker News" rel="tooltip" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2flinode.com%2fdocs%2fweb-servers%2flamp%2finstall-lamp-stack-on-ubuntu-16-04%2f&amp;t=How%20to%20Install%20a%20LAMP%20Stack%20on%20Ubuntu%2016.04" class="btn btn-hacker-news" data-placement="left" target="_blank">
+                    <i class="fa fa-hacker-news "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div></div>
+            
+            </div>
+            <div class="library-github" markdown="0">
+	<i class="fa fa-github"></i>
+	<strong>Contribute on GitHub</strong>
+	<p>
+		
+        <a href="https://github.com/linode/docs/issues/new?title=How%20to%20Install%20a%20LAMP%20Stack%20on%20Ubuntu%2016.04%20Proposed%20Changes&amp;body=Link%3A%C2%A0https%3A%2F%2Flinode.com%2fdocs%2fweb-servers%2flamp%2finstall-lamp-stack-on-ubuntu-16-04%2f%0A%23%23%20Issue%0A%0A%23%23%20Suggested%20Fix%0A&amp;labels=inaccurate%20guide">Report an Issue</a> |
+		<a href="https://github.com/linode/docs/blob/master/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04.md">View File</a> |
+		<a href="https://github.com/linode/docs/edit/master/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04.md">Edit File</a>
+	</p>
+</div>
+
+            
+
+            
+
+            
+
+<p>A LAMP (Linux, Apache, MySQL, PHP) stack is a common, free and open-source web stack used for hosting web content in a Linux environment. Many consider it the platform of choice on which to develop and deploy high-performance web apps.</p>
+
+<p>This guide shows how to install and test a LAMP stack on Ubuntu 16.04 (LTS).</p>
+
+<p><img src="./How to Install a LAMP Stack on Ubuntu 16.04_files/install-lamp-on-ubuntu-1604.png" alt="Install LAMP on Ubuntu 16.04" title="Install LAMP on Ubuntu 16.04"></p>
+
+<blockquote class="note">
+  <strong class="callout-title">Note</strong>
+  <div><p>This guide is written for a non-root user. Commands that require elevated privileges are prefixed with <code>sudo</code>. If you’re not familiar with the <code>sudo</code> command, see the <a href="https://linode.com/docs/tools-reference/linux-users-and-groups">Linux Users and Groups guide</a>.</p>
+
+<p>Replace each instance of <code>example.com</code> in this guide with your site’s domain name.</p>
+</div>
+</blockquote>
+
+
+<h2 id="before-you-begin">Before You Begin<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#before-you-begin" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h2>
+
+<ol>
+<li><p>Ensure that you have followed the <a href="https://linode.com/docs/getting-started">Getting Started</a> and <a href="https://linode.com/docs/security/securing-your-server">Securing Your Server</a> guides and that the Linode’s <a href="https://linode.com/docs/getting-started#setting-the-hostname">hostname is set</a>.</p></li>
+
+<li><p>Update your system:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo apt update &amp;&amp; sudo apt upgrade
+</code></pre></li>
+</ol>
+
+<h2 id="quick-install-using-tasksel">Quick Install Using Tasksel<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#quick-install-using-tasksel" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h2>
+
+<p>Instead of installing Apache, MySQL, and PHP separately, tasksel offers a convenient way to get a LAMP stack running quickly.</p>
+
+<ol>
+<li><p>Install tasksel if not already installed by default.</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo apt install tasksel
+</code></pre></li>
+
+<li><p>Use tasksel to install the LAMP stack.</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo tasksel install lamp-server
+</code></pre></li>
+
+<li><p>Enter the prompt for a MySQL root password. See the steps below for Apache configurations, creating a virtual host, and installation of PHP modules for WordPress installation.</p></li>
+</ol>
+
+<h2 id="apache">Apache<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#apache" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h2>
+
+<h3 id="install-and-configure-apache">Install and Configure Apache<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#install-and-configure-apache" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h3>
+
+<ol>
+<li><p>Install Apache 2.4 from the Ubuntu repository:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo apt install apache2
+</code></pre></li>
+
+<li><p>The <code>KeepAlive</code> setting allows Apache to utilize server-side memory, reducing latency for users on the hosted site. <code>KeepAlive</code> will make a website faster if the host has enough memory to support it. This is done by allowing Apache to reuse connections, instead of opening a new connection for every request.</p>
+
+<p>The state of <code>KeepAlive</code> depends on the type of site you plan to run. Please read more about your specific use-case <a href="https://httpd.apache.org/docs/2.4/mod/core.html#keepalive">here</a> open the Apache config file, <code>apache2.conf</code>, and adjust the <code>KeepAlive</code> setting:</p>
+
+<dl class="file">
+<dt>
+
+
+		/etc/apache2/apache2.conf 
+
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tbody><tr><td class="lntd">
+<pre class="chroma"><code class="language-aconf" data-lang="aconf"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<td class="lntd">
+<div class="btn-copy"><a class="copy-code" data-original-title="" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre class="chroma"><code class="language-aconf" data-lang="aconf"><span class="nb">KeepAlive</span> <span class="k">On</span>
+<span class="nb">MaxKeepAliveRequests</span> <span class="m">50</span>
+<span class="nb">KeepAliveTimeout</span> <span class="m">5</span></code></pre></td></tr></tbody></table>
+</div>
+</div>
+</dd>
+</dl>
+
+<blockquote class="note">
+  <strong class="callout-title">Note</strong>
+  <div>The <code>MaxKeepAliveRequests</code> setting controls the maximum number of requests during a persistent connection. 50 is a conservative amount; you may need to set this number higher depending on your use-case. The <code>KeepAliveTimeout</code> controls how long the server waits for new requests from already connected clients, setting this option to 5 will avoid wasting RAM.</div>
+</blockquote>
+</li>
+
+<li><p>The default <em>multi-processing module</em> (MPM) is the <strong>prefork</strong> module. <code>Mpm_prefork</code> is the module that is compatible with most systems. Since the LAMP stack requires PHP, it may be best to stick with the default. Open the <code>mpm_prefork.conf</code> file located in <code>/etc/apache2/mods-available</code> and edit the configuration. Below are the suggested values for a <strong>2GB Linode</strong>:</p>
+
+<dl class="file">
+<dt>
+
+
+		/etc/apache2/mods-available/mpm_prefork.conf 
+
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tbody><tr><td class="lntd">
+<pre class="chroma"><code class="language-aconf" data-lang="aconf"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span></code></pre></td>
+<td class="lntd">
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre class="chroma"><code class="language-aconf" data-lang="aconf"><span class="nt">&lt;IfModule</span> <span class="s">mpm_prefork_module</span><span class="nt">&gt;</span>
+        <span class="nb">StartServers</span>            <span class="m">4</span>
+        <span class="nb">MinSpareServers</span>         <span class="m">3</span>
+        <span class="nb">MaxSpareServers</span>         <span class="m">40</span>
+        <span class="nb">MaxRequestWorkers</span>       <span class="m">200</span>
+        <span class="nb">MaxConnectionsPerChild</span>  <span class="m">10000</span>
+<span class="nt">&lt;/IfModule</span><span class="s"></span><span class="nt">&gt;</span></code></pre></td></tr></tbody></table>
+</div>
+</div>
+</dd>
+</dl></li>
+
+<li><p>Disable the event module and enable prefork:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo a2dismod mpm_event
+sudo a2enmod mpm_prefork
+</code></pre></li>
+
+<li><p>Restart Apache:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo systemctl restart apache2
+</code></pre></li>
+</ol>
+
+<h3 id="configure-virtual-hosts">Configure Virtual Hosts<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#configure-virtual-hosts" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h3>
+
+<p>You can set up virtual hosts several ways; however, below is the recommended method. By default, Apache listens on all IP addresses available to it. For all steps below, replace <code>example.com</code> with your domain name.</p>
+
+<ol>
+<li><p>Create a copy of the default Apache configuration file for your site:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="Copied!" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/example.com.conf
+</code></pre></li>
+
+<li><p>Edit the new <code>example.com.conf</code> configuration file by uncommenting <code>ServerName</code> and replacing <code>example.com</code> with your site’s IP or Fully Qualified Domain Name (FQDN). Enter the document root path and log directories as shown below, and add a <code>Directory</code> block before <code>&lt;/VirtualHost&gt;</code>:</p>
+
+<dl class="file">
+<dt>
+
+
+		/etc/apache2/sites-available/example.com.conf 
+
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tbody><tr><td class="lntd">
+<pre class="chroma"><code class="language-apache" data-lang="apache"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span></code></pre></td>
+<td class="lntd">
+<div class="btn-copy"><a class="copy-code" data-original-title="" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre class="chroma"><code class="language-apache" data-lang="apache"><span class="nt">&lt;Directory</span> <span class="s">/var/www/html/example.com/public_html</span><span class="nt">&gt;</span>
+        <span class="nb">Require</span> <span class="k">all</span> granted
+<span class="nt">&lt;/Directory</span><span class="s"></span><span class="nt">&gt;</span>
+<span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
+        <span class="nb">ServerName</span> example.com
+        <span class="nb">ServerAlias</span> www.example.com
+        <span class="nb">ServerAdmin</span> webmaster@localhost
+        <span class="nb">DocumentRoot</span> <span class="sx">/var/www/html/example.com/public_html</span>
+
+        <span class="nb">ErrorLog</span> <span class="sx">/var/www/html/example.com/logs/error.log</span>
+        <span class="nb">CustomLog</span> <span class="sx">/var/www/html/example.com/logs/access.log</span> combined
+
+<span class="nt">&lt;/VirtualHost</span><span class="s"></span><span class="nt">&gt;</span></code></pre></td></tr></tbody></table>
+</div>
+</div>
+</dd>
+</dl>
+
+<blockquote class="note">
+  <strong class="callout-title">Note</strong>
+  <div><p>The file example above has all comment sections removed for brevity; you may keep or remove the commented areas as you see fit.</p>
+
+<p>The <code>ServerAlias</code> directive allows you to include multiple domain names or subdomains for a single host. The example above allows visitors to use <code>example.com</code> or <code>www.example.com</code> to navigate to this virtual host.</p>
+</div>
+</blockquote>
+</li>
+
+<li><p>Create the directories referenced above:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="Copied!" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo mkdir -p /var/www/html/example.com/{public_html,logs}
+</code></pre>
+
+<blockquote class="note">
+  <strong class="callout-title">Note</strong>
+  <div>Make sure that you do not put space after comma between <code>public_html</code> and <code>logs</code> because it will create a folder named <code>{public_html,</code> and will cause an error when you will reload Apache.</div>
+</blockquote>
+</li>
+
+<li><p>Link your virtual host file from the <code>sites-available</code> directory to the <code>sites-enabled</code> directory:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo a2ensite example.com.conf
+</code></pre>
+
+<blockquote class="note">
+  <strong class="callout-title">Note</strong>
+  <div><p>If you need to disable your website, run:</p>
+
+<p>a2dissite example.com.conf</p>
+</div>
+</blockquote>
+</li>
+
+<li><p>Disable the default virtual host to minimize security risks:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo a2dissite 000-default.conf
+</code></pre></li>
+
+<li><p>Reload Apache:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title="" style="transition: opacity 0.25s ease-in-out;"><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo systemctl reload apache2
+</code></pre></li>
+</ol>
+
+<p>Virtual hosting should now be enabled. To allow the virtual host to use your domain name, be sure that you have configured <a href="https://www.linode.com/docs/networking/dns/dns-manager-overview">DNS services</a> for your domain to point to your Linode’s IP address.</p>
+
+<p>If there are additional websites you wish to host on your Linode, repeat the above steps to add a folder and configuration file for each.</p>
+
+<h2 id="mysql">MySQL<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#mysql" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h2>
+
+<h3 id="install-mysql">Install MySQL<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#install-mysql" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h3>
+
+<p>Install the <code>mysql-server</code> package and choose a secure password when prompted:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo apt install mysql-server
+</code></pre>
+
+<h3 id="create-a-mysql-database">Create a MySQL Database<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#create-a-mysql-database" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h3>
+
+<ol>
+<li><p>Log into MySQL:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>mysql -u root -p
+</code></pre>
+
+<p>Enter MySQL’s root password, and you’ll be presented with a MySQL prompt.</p></li>
+
+<li><p>If no password was entered in the previous section, or if you want to change the root password, enter the following command. Replace <code>password</code> with a new root password:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'password';
+</code></pre></li>
+
+<li><p>Create a database and a user with permissions for it. In this example, the database is called <code>webdata</code>, the user <code>webuser</code>, and password <code>password</code>:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>CREATE DATABASE webdata;
+GRANT ALL ON webdata.* TO 'webuser' IDENTIFIED BY 'password';
+</code></pre></li>
+
+<li><p>Exit MySQL:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>quit
+</code></pre></li>
+</ol>
+
+<h2 id="php-7-0">PHP 7.0<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#php-7-0" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h2>
+
+<ol>
+<li><p>Install PHP, the PHP Extension and Application Repository, Apache support, and MySQL support:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo apt install php7.0 libapache2-mod-php7.0 php7.0-mysql
+</code></pre>
+
+<p>Optionally, install additional cURL, JSON, and CGI support:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo apt install php7.0-curl php7.0-json php7.0-cgi
+</code></pre></li>
+
+<li><p>Once PHP7.0 is installed, edit the configuration file located in <code>/etc/php/7.0/apache2/php.ini</code> to enable more descriptive errors, logging, and better performance. The following modifications provide a good starting point:</p>
+
+<dl class="file-excerpt">
+<dt>
+
+
+		/etc/php/7.0/apache2/php.ini 
+
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tbody><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<td class="lntd">
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">max_input_time</span> <span class="o">=</span> <span class="s">30</span>
+<span class="na">error_reporting</span> <span class="o">=</span> <span class="s">E_COMPILE_ERROR | E_RECOVERABLE_ERROR | E_ERROR | E_CORE_ERROR</span>
+<span class="na">error_log</span> <span class="o">=</span> <span class="s">/var/log/php/error.log</span></code></pre></td></tr></tbody></table>
+</div>
+</div>
+</dd>
+</dl>
+
+
+<blockquote class="note">
+  <strong class="callout-title">Note</strong>
+  <div>The beginning of the <code>php.ini</code> file contains examples commented out with a semicolon (<strong>;</strong>), which disables these directives. Ensure that the lines you modify in this step follow the examples section and are uncommented.</div>
+</blockquote>
+</li>
+
+<li><p>Create the log directory for PHP and give ownership to the Apache system user:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo mkdir /var/log/php
+sudo chown www-data /var/log/php
+</code></pre></li>
+
+<li><p>Restart Apache:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>sudo systemctl restart apache2
+</code></pre>
+
+<blockquote class="note">
+  <strong class="callout-title">Note</strong>
+  <div>If you plan on using your LAMP stack to host a WordPress server, download these PHP modules: <code>apt install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc</code></div>
+</blockquote>
+</li>
+</ol>
+
+<h3 id="optional-test-and-troubleshoot-the-lamp-stack">Optional: Test and Troubleshoot the LAMP Stack<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#optional-test-and-troubleshoot-the-lamp-stack" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h3>
+
+<p>In this section, you’ll create a test page that shows whether Apache can render PHP and connect to the MySQL database. This can be helpful in locating the source of an error if one of the elements of your LAMP stack is not communicating with the others.</p>
+
+<ol>
+<li><p>Paste the following code into a new file, <code>phptest.php</code>, in the <code>public_html</code> directory. Modify <code>webuser</code> and <code>password</code> to match the information entered in the <strong>Create a MySQL Database</strong> section above:</p>
+
+<dl class="file-excerpt">
+<dt>
+
+
+		/var/www/html/example.com/public_html/phptest.php 
+
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tbody><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span><span class="lnt">22</span><span class="lnt">23</span></code></pre></td>
+<td class="lntd">
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre class="chroma"><code class="language-php" data-lang="php"><span class="x">&lt;html&gt;
+</span><span class="x">&lt;head&gt;
+</span><span class="x">    &lt;title&gt;PHP Test&lt;/title&gt;
+</span><span class="x">&lt;/head&gt;
+</span><span class="x">    &lt;body&gt;
+</span><span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s1">'&lt;p&gt;Hello World&lt;/p&gt;'</span><span class="p">;</span>
+
+    <span class="c1">// In the variables section below, replace user and password with your own MySQL credentials as created on your server
+</span><span class="c1"></span>    <span class="nv">$servername</span> <span class="o">=</span> <span class="s2">"localhost"</span><span class="p">;</span>
+    <span class="nv">$username</span> <span class="o">=</span> <span class="s2">"webuser"</span><span class="p">;</span>
+    <span class="nv">$password</span> <span class="o">=</span> <span class="s2">"password"</span><span class="p">;</span>
+
+    <span class="c1">// Create MySQL connection
+</span><span class="c1"></span>    <span class="nv">$conn</span> <span class="o">=</span> <span class="nx">mysqli_connect</span><span class="p">(</span><span class="nv">$servername</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">);</span>
+
+    <span class="c1">// Check connection - if it fails, output will include the error message
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$conn</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">die</span><span class="p">(</span><span class="s1">'&lt;p&gt;Connection failed: &lt;p&gt;'</span> <span class="o">.</span> <span class="nx">mysqli_connect_error</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">echo</span> <span class="s1">'&lt;p&gt;Connected successfully&lt;/p&gt;'</span><span class="p">;</span>
+    <span class="cp">?&gt;</span><span class="x">
+</span><span class="x">&lt;/body&gt;
+</span><span class="x">&lt;/html&gt;</span></code></pre></td></tr></tbody></table>
+</div>
+</div>
+</dd>
+</dl>
+</li>
+
+<li><p>Navigate to <code>example.com/phptest.php</code> from your local machine. If the components of your LAMP stack are working correctly, the browser will display a “Connected successfully” message. If not, the output will be an error message.</p></li>
+</ol>
+
+<h3 id="troubleshooting">Troubleshooting<a class="header-link" href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#troubleshooting" title="Permalink"><span class="sr-only">Permalink</span><i class="fa fa-link"></i></a></h3>
+
+<ul>
+<li><p>If the site does not load at all, check if Apache is running, and restart it if required:</p>
+
+<div class="btn-copy"><a class="copy-code" data-original-title="" title=""><span class="glyphicon glyphicon-copy"></span></a></div><pre><code>systemctl status apache2
+sudo systemctl restart apache2
+</code></pre></li>
+
+<li><p>If the site loads, but the page returned is the default “Congratulations” page, return to the <strong>Configure Virtual Hosts</strong> section above and check that the <code>DocumentRoot</code> matches your <code>example.com/public_html</code> folder.</p></li>
+
+<li><p>If the page returned says “Index of /” or has a similar folder tree structure, create a test <code>index.html</code> file or a test file as shown above.</p></li>
+</ul>
+
+<p>Congratulations! You have now set up and configured a LAMP stack on Ubuntu 16.04 (LTS).</p>
+
+            
+<h2>More Information</h2>
+<p>You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.</p>
+<ul>
+
+<li><a href="http://www.ubuntu.com/server">Ubuntu Server Edition Homepage</a></li>
+
+<li><a href="http://httpd.apache.org/docs/2.4/">Apache HTTP Server Documentation</a></li>
+
+<li><a href="http://dev.mysql.com/doc/">MySQL Documentation</a></li>
+
+<li><a href="http://www.php.net/docs.php">PHP Documentation</a></li>
+
+</ul>
+
+
+            
+
+
+            
+            <div class="doc-disqus lazyload">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        window.disqus_title = 'How to Install a LAMP Stack on Ubuntu 16.04'
+        window.disqus_identifier = 'https:\/\/linode.com\/docs\/web-servers\/lamp\/install-lamp-stack-on-ubuntu-16-04\/'
+        window.disqus_url = 'https:\/\/linode.com\/docs\/web-servers\/lamp\/install-lamp-stack-on-ubuntu-16-04\/'
+        window.disqus_shortname = 'linode-1'
+
+        $(function () {
+            
+            $(document).on('lazybeforeunveil', function() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                var disqus_shortname = 'linode-1';
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);     
+          
+            });
+        });
+    </script>
+    <noscript>Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+    <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+            
+            
+<p class="doc-license">This guide is published under a <a href="https://creativecommons.org/licenses/by-nd/4.0">CC BY-ND 4.0</a> license.</p>
+
+          </div>
+          <div id="doc-sidebar-container" class="col-sm-3 col-sm-pull-9 hidden-xs">
+  <div id="doc-sidebar">
+    <div markdown="0" class="doc-sidebar-inner">
+  <div class="input-group">
+	<label class="sr-only" for="q">Search guides and tutorials</label>
+	<input id="ss_keyword" name="q" type="text" class="form-control" placeholder="Search guides...">
+	<span class="input-group-btn">
+		<button type="submit" class="btn btn-blue" id="ds-search-btn"><span class="glyphicon glyphicon-search"></span></button>
+	</span>
+</div>
+
+</div>
+
+      
+    <div class="doc-sidebar-inner" id="doc-sidebar-toc">
+      <h3 id="doc-sidebar-title">In This Guide:</h3>
+      <div class="sidebar sidebar-library nav navbar" id="markdown-toc">
+          <nav id="TableOfContents">
+<ul>
+<li class="active">
+<ul>
+<li class=""><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#before-you-begin">Before You Begin</a></li>
+<li class=""><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#quick-install-using-tasksel">Quick Install Using Tasksel</a></li>
+<li class="active"><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#apache">Apache</a>
+<ul>
+<li class=""><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#install-and-configure-apache">Install and Configure Apache</a></li>
+<li class="active"><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#configure-virtual-hosts">Configure Virtual Hosts</a></li>
+</ul></li>
+<li><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#mysql">MySQL</a>
+<ul>
+<li><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#install-mysql">Install MySQL</a></li>
+<li><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#create-a-mysql-database">Create a MySQL Database</a></li>
+</ul></li>
+<li><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#php-7-0">PHP 7.0</a>
+<ul>
+<li><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#optional-test-and-troubleshoot-the-lamp-stack">Optional: Test and Troubleshoot the LAMP Stack</a></li>
+<li><a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#troubleshooting">Troubleshooting</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+    </div>
+    
+    <div class="library-rss">
+  <a href="https://linode.com/docs/index.xml"><i class="fa fa-rss-square"></i> RSS feed</a>
+</div>
+
+    <div markdown="0" class="library-signup">
+  <form action="https://linode.us7.list-manage.com/subscribe/post?u=f9b54ed743e1629877750e3f4&amp;id=68bafea72a&amp;SIGNUP=library-website" method="post" class="email-signup" target="_blank" novalidate="">
+    <i class="fa fa-envelope"></i>
+    <h6>Monthly Guides Update</h6>
+    <input name="EMAIL" type="email" class="form-control input-sm" placeholder="Email address" required="">
+    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+      <input type="text" name="b_f9b54ed743e1629877750e3f4_68bafea72a" tabindex="-1" value="">
+    </div>
+    <div style="display:none">
+      <input type="checkbox" value="4" name="group[13][4]" id="mce-group[13]-13-0" checked="">
+    </div>
+    <button type="submit" class="btn btn-blue btn-sm btn-border email-signup" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Sign Up</button>
+  </form>
+</div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="imageModal" aria-hidden="true">
+  <div class="modal-dialog modal-full">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="img-modal-title" class="modal-title">Image Detail</h4>
+      </div>
+      <div class="modal-body">
+        <img id="img-modal-image" class="img-responsive">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <footer>
+            <section class="neutral some-space">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<h3>Write for Linode.</h3>
+				<p class="lead">We're always expanding our docs. If you like to help people, can write, and have expertise in a Linux or cloud infrastructure topic, learn how you can <a href="https://linode.com/docs/contribute">contribute</a> to our library.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+            <section id="pre-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7">
+        <span>Get started in the Linode Cloud today.</span>
+      </div>
+      <div class="col-sm-5 pad-xs">
+        <a id="btn-signup-bottom" class="btn btn-lg btn-full btn-green" href="https://manager.linode.com/session/signup">Create an Account</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="container">
+
+    <div class="row">
+      <div class="footer-col">
+        <h5><a href="https://www.linode.com/linodes">Overview</a></h5>
+        <ul>
+          <li><a href="https://www.linode.com/pricing">Plans &amp; Pricing</a></li>
+          <li><a href="https://www.linode.com/linodes">Features</a></li>
+          <li><a href="https://www.linode.com/addons">Add-Ons</a></li>
+          <li><a href="https://www.linode.com/managed">Managed</a></li>
+          <li><a href="https://www.linode.com/professional-services">Professional Services</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5><a href="https://linode.com/docs/">Resources</a></h5>
+        <ul>
+          <li><a href="https://linode.com/docs/">Guides &amp; Tutorials</a></li>
+          <li><a href="https://www.linode.com/speedtest">Speed Test</a></li>
+          <li><a href="https://forum.linode.com/">Forum</a></li>
+          <li><a href="https://www.linode.com/chat">Chat</a></li>
+          <li><a href="http://status.linode.com/">System Status</a></li>
+        </ul>
+      </div>
+
+
+      <div class="footer-col">
+        <h5><a href="https://www.linode.com/about">Company</a></h5>
+        <ul>
+          <li><a href="https://www.linode.com/about">About Us</a></li>
+          <li><a href="https://blog.linode.com/">Blog</a></li>
+          <li><a href="https://www.linode.com/press">Press</a></li>
+          <li><a href="https://www.linode.com/referrals">Referral System</a></li>
+          <li><a href="https://www.linode.com/careers">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5><a href="https://www.linode.com/contact">Contact Us</a></h5>
+        <ul>
+          <li><a href="tel:+18554546633">855-4-LINODE</a></li>
+          <li><a href="tel:+18554546633">(855-454-6633)</a></li>
+          <li><a href="tel:+16093807100">Intl.: +1 609-380-7100</a></li>
+          <li><a href="mailto:support@linode.com">Email us</a></li>
+          <li>
+            <br>
+            <a target="_blank" href="https://facebook.com/linode"><i class="fa fa-facebook-square"></i></a>
+            <a target="_blank" href="https://twitter.com/linode"><i class="fa fa-twitter-square"></i></a>
+            <a target="_blank" href="https://plus.google.com/+linode/"><i class="fa fa-google-plus-square"></i></a>
+            <a target="_blank" href="https://linkedin.com/company/linode"><i class="fa fa-linkedin-square"></i></a>
+            <a target="_blank" href="https://github.com/linode/"><i class="fa fa-github-square"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-moar">
+  <div class="container">
+    <div id="footer-copyright" class="row">
+      <div class="col text-center">
+        © 2018 Linode, LLC
+      </div>
+
+      <div class="col text-center">
+        <a href="https://www.linode.com/tos">Terms of Service</a>
+      </div>
+
+      <div class="col text-center">
+        <a href="https://www.linode.com/privacy">Privacy Policy</a>
+      </div>
+
+      <div class="col text-center">
+        <a href="https://www.linode.com/security">Security</a>
+      </div>
+
+      <div class="col text-center">
+        <a href="https://www.linode.com/compliance">Standards &amp; Compliance</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+        </footer>
+        
+            
+<script src="./How to Install a LAMP Stack on Ubuntu 16.04_files/libs-de389cd58b.min.js.download" type="text/javascript"></script>
+<script src="./How to Install a LAMP Stack on Ubuntu 16.04_files/main-f595eb3b39.min.js.download" type="text/javascript"></script>
+
+        
+        <script type="text/javascript">
+$( "img[src^='\/docs\/assets']" ).each(function () {
+  $( this ).parent().bind('click', false);
+  $( this ).on('click', function(e) {
+    var image_title = $( this ).attr('alt');
+    var image_href = $( this ).parent().attr('href') || $( this ).attr('src');
+    $( '#img-modal-image' ).attr('src', image_href);
+    $( '#img-modal-title' ).text(image_title);
+    $( '#img-modal' ).modal({ show: true });
+  });
+});
+</script>
+
+
+
+        
+<script type="text/javascript">
+ SidebarScroll.init()
+</script>
+
+    
+
+<div style="display: none; visibility: hidden;">
+<script src="./How to Install a LAMP Stack on Ubuntu 16.04_files/2220190451.js.download"></script></div><script type="text/javascript" id="">(function(b,c,e,f,d){b[d]=b[d]||[];var g=function(){var a={ti:"4055942"};a.q=b[d];b[d]=new UET(a);b[d].push("pageLoad")};var a=c.createElement(e);a.src=f;a.async=1;a.onload=a.onreadystatechange=function(){var b=this.readyState;b&&"loaded"!==b&&"complete"!==b||(g(),a.onload=a.onreadystatechange=null)};c=c.getElementsByTagName(e)[0];c.parentNode.insertBefore(a,c)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript>&lt;img src="//bat.bing.com/action/0?ti=4055942&amp;amp;Ver=2" height="0" width="0" style="display:none; visibility: hidden;"&gt;</noscript>
+<script type="text/javascript" id="" src="https://platform.twitter.com/oct.js"></script>
+<style>
+.leadin-content-body a {
+    color: #0089bc;
+}
+
+.leadin-content-body a:hover, .leadin-content-body a:focus {
+    color: #005170;
+}
+</style>
+
+
+  <script type="text/javascript" id="">(function(a,c,d,e){if(!a.getElementById(d)){var b=a.createElement(c);a=a.getElementsByTagName(c)[0];b.id=d;b.src="//js.hs-analytics.net/analytics/"+Math.ceil(new Date/e)*e+"/2165147.js";a.parentNode.insertBefore(b,a)}})(document,"script","hs-analytics",3E5);</script>
+<script type="text/javascript" id="">_linkedin_data_partner_id="45221";</script><script type="text/javascript" id="">(function(){var b=document.getElementsByTagName("script")[0],a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";b.parentNode.insertBefore(a,b)})();</script><script type="text/javascript" id="">(function(d,a,b,f,e){d[e]=d[e]||[];d[e].push({projectId:"10000",properties:{pixelId:"10036070"}});var c=a.createElement(b);c.src=f;c.async=!0;c.onload=c.onreadystatechange=function(){var a=this.readyState,c=d[e];if(!a||"complete"==a||"loaded"==a)try{var b=YAHOO.ywa.I13N.fireBeacon;d[e]=[];d[e].push=function(a){b([a])};b(c)}catch(g){}};a=a.getElementsByTagName(b)[0];b=a.parentNode;b.insertBefore(c,a)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script><script type="text/javascript" id="">function parse_query_string(c){c=c.split("\x26");for(var b={},d=0;d<c.length;d++){var a=c[d].split("\x3d");if("undefined"===typeof b[a[0]])b[a[0]]=decodeURIComponent(a[1]);else if("string"===typeof b[a[0]]){var e=[b[a[0]],decodeURIComponent(a[1])];b[a[0]]=e}else b[a[0]].push(decodeURIComponent(a[1]))}return b}var query=window.location.search.substring(1),qs=parse_query_string(query);console.log(qs.utm_source);
+"undefined"!==typeof qs.utm_source&&(document.cookie="CUSTOM_UTM_SOURCE\x3d"+qs.utm_source+";path\x3d/;domain\x3dlinode.com; expires\x3dFri, 31 Dec 9999 23:59:59 GMT");"undefined"!==typeof qs.utm_medium&&(document.cookie="CUSTOM_UTM_MEDIUM\x3d"+qs.utm_medium+";path\x3d/;domain\x3dlinode.com; expires\x3dFri, 31 Dec 9999 23:59:59 GMT");"undefined"!==typeof qs.utm_campaign&&(document.cookie="CUSTOM_UTM_CAMPAIGN\x3d"+qs.utm_campaign+";path\x3d/;domain\x3dlinode.com; expires\x3dFri, 31 Dec 9999 23:59:59 GMT");</script>
+<script type="text/javascript" id="">!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","nuplg");twq("track","PageView");</script>
+<script type="text/javascript" id="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/saved_resource(1)"></script><script type="text/javascript" id="">(function(b,c,e,f,d){b[d]=b[d]||[];var g=function(){var a={ti:"5587797"};a.q=b[d];b[d]=new UET(a);b[d].push("pageLoad")};var a=c.createElement(e);a.src=f;a.async=1;a.onload=a.onreadystatechange=function(){var b=this.readyState;b&&"loaded"!==b&&"complete"!==b||(g(),a.onload=a.onreadystatechange=null)};c=c.getElementsByTagName(e)[0];c.parentNode.insertBefore(a,c)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript>&lt;img src="//bat.bing.com/action/0?ti=5587797&amp;amp;Ver=2" height="0" width="0" style="display:none; visibility: hidden;"&gt;</noscript>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1552019005089831");fbq("set","agent","tmgoogletagmanager","1552019005089831");fbq("track","PageView");</script>
+<script type="application/javascript" id="ywa-1520443457577-529798" class="ywa-10000" defer="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/sp.pl.download"></script><iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/rcj-99d43ead6bdf30da8ed5ffcb4f17100c.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.8482398724382372"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.17083027303562726" width="0" height="0" alt="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/0"></div><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.4581787874288539"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.6493580363911815" width="0" height="0" alt="" src="./How to Install a LAMP Stack on Ubuntu 16.04_files/0(1)"></div><div id="ads"></div><div class="ub-emb-container"><div></div></div><script src="./How to Install a LAMP Stack on Ubuntu 16.04_files/saved_resource(2)" type="text/javascript"></script></body></html>
